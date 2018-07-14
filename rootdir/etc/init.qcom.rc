@@ -1,5 +1,9 @@
 import /system/etc/init/init.oppo.fingerprint.rc
 
+on boot
+    # OTG
+    write /sys/class/power_supply/usb/otg_switch 1
+
 service vendor.imsdatadaemon /vendor/bin/imsdatadaemon
     override
     class main
