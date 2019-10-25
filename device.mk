@@ -59,6 +59,10 @@ PRODUCT_PACKAGES += \
     libqdMetaData.system \
     libvulkan
 
+# Fingerprint
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml
+
 # FM
 PRODUCT_PACKAGES += \
     FM2 \
@@ -109,6 +113,10 @@ PRODUCT_PACKAGES += \
 # Ril
 PRODUCT_PACKAGES += \
     android.hardware.radio@1.4
+
+# Sensors
+PRODUCT_COPY_FILES += \
+    frameworks/native/data/etc/android.hardware.sensor.proximity.xml:system/etc/permissions/android.hardware.sensor.proximity.xml
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
