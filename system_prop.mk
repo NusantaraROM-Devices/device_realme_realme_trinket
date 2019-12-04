@@ -38,6 +38,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.sf.enable_hwc_vds=1 \
     debug.cpurend.vsync=false
 
+# set lmkd options
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.lmk.low_ram=false \
+    ro.lmk.kill_heaviest_task=true \
+    ro.lmk.kill_timeout_ms=100 \
+    ro.lmk.use_minfree_levels=true
+
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.thumbnail.prefer_hw_codecs=true \
