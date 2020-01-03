@@ -5,6 +5,15 @@ on init
     chown system system /proc/touchpanel/double_tap_enable
     chmod 0666 /proc/touchpanel/double_tap_enable
 
+    # set default schedTune value for foreground/top-app
+    # Set default values for foreground and top-app stune
+    write /dev/stune/foreground/schedtune.prefer_idle 1
+    write /dev/stune/top-app/schedtune.boost 10
+    write /dev/stune/top-app/schedtune.prefer_idle 1
+
+    mount none /dev/null /vendor/bin/hw/android.hardware.power@1.0-service
+    mount none /dev/null /vendor/etc/init/android.hardware.power@1.0-service.rc
+
 on boot
     # Add for touchscreen firmware update check
     chown system system /proc/touchpanel/tp_fw_update
@@ -36,3 +45,18 @@ on property:init.svc.vendor.ipacm-diag=running
 
 on property:sys.boot_completed=1
     start set_zram
+
+on property:vendor.post_boot.parsed=1
+
+    # Enable powersaving
+    write /sys/module/lpm_levels/parameters/sleep_disabled 0
+
+    # Enable idle state listener
+    write /sys/class/drm/card0/device/idle_encoder_mask 1
+    write /sys/class/drm/card0/device/idle_timeout_ms 100
+
+    # Enable PowerHAL hint processing
+    setprop vendor.powerhal.init 1
+
+service vendor.power-hal-1-0 /system/bin/true
+    disabled
