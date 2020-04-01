@@ -23,3 +23,6 @@
 /sys/class/power_supply/battery/temp           u:object_r:sysfs_device_info:s0
 /sys/kernel/gpu/gpu_clock                      u:object_r:sysfs_device_info:s0
 /sys/kernel/gpu/gpu_busy                       u:object_r:sysfs_device_info:s0
+
+# FPS Info
+/sys/class/drm/sde-crtc-0/measured_fps                              u:object_r:sysfs_fps:s0
