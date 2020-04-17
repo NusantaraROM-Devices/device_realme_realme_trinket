@@ -26,6 +26,13 @@ service vendor.imsdatadaemon /vendor/bin/imsdatadaemon
     group radio wifi inet vendor_qti_diag log
     disabled
 
+service set_zram /vendor/bin/sh /system/etc/init/set_zram.sh
+    class late_start
+    disabled
+    user root
+    group system
+    oneshot
+
 on property:init.svc.cnss_diag=running
     stop cnss_diag
 
@@ -34,3 +41,6 @@ on property:init.svc.tcpdump=running
 
 on property:init.svc.vendor.ipacm-diag=running
     stop vendor.ipacm-diag
+
+on property:sys.boot_completed=1
+    start set_zram

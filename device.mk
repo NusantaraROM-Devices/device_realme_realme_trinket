@@ -152,3 +152,7 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     WfdCommon
+
+# zRam
+PRODUCT_PACKAGES += \
+    set_zram.sh
