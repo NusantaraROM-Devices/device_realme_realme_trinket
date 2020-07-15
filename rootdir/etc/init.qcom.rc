@@ -1,13 +1,11 @@
 import /system/etc/init/init.oppo.fingerprint.rc
+import /system/etc/init/init.devicesetting.rc
 
 on init
     chown system system /proc/touchpanel/double_tap_enable
     chmod 0666 /proc/touchpanel/double_tap_enable
 
 on boot
-    # OTG
-    write /sys/class/power_supply/usb/otg_switch 1
-
     # Add for limit_enable
     chown system system /proc/touchpanel/oppo_tp_direction
     chown system system /proc/touchpanel/tp_fw_update
