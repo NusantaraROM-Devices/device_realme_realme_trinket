@@ -193,6 +193,7 @@ PRODUCT_PACKAGES += \
 
 # WiFi
 PRODUCT_PACKAGES += \
+    TetheringConfigOverlay \
     WifiOverlay
 
 PRODUCT_COPY_FILES += \
