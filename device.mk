@@ -14,6 +14,7 @@ $(call inherit-product-if-exists, vendor/realme/realme_trinket/realme_trinket-ve
 
 # VNDK
 PRODUCT_TARGET_VNDK_VERSION := 29
+PRODUCT_EXTRA_VNDK_VERSIONS := 29
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1600
