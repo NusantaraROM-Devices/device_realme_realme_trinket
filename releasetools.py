@@ -19,9 +19,11 @@ import re
 
 def FullOTA_Assertions(info):
   AddTrustZoneAssertion(info, info.input_zip)
+  PatchVendor(info)
 
 def IncrementalOTA_Assertions(info):
   AddTrustZoneAssertion(info, info.target_zip)
+  PatchVendor(info)
 
 def AddTrustZoneAssertion(info, input_zip):
   android_info = info.input_zip.read("OTA/android-info.txt")
@@ -31,3 +33,9 @@ def AddTrustZoneAssertion(info, input_zip):
     if len(versions) and '*' not in versions:
       cmd = 'assert(realme_trinket.verify_trustzone(' + ','.join(['"%s"' % tz for tz in versions]) + ') == "1" || abort("ERROR: This package requires firmware from an Android 10 based RealmeUI build. Please upgrade firmware and retry!"););'
       info.script.AppendExtra(cmd)
+
+def PatchVendor(info):
+  info.script.AppendExtra('mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/vendor", "/vendor");')
+  info.script.AppendExtra('delete_recursive("/vendor/overlay/");')
+  info.script.AppendExtra('unmount("/vendor");')
+  return
