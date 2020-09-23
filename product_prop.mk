@@ -13,6 +13,10 @@ PRODUCT_PRODUCT_PROPERTIES += \
     ro.adb.secure=0
 endif
 
+# BPF
+PRODUCT_PRODUCT_PROPERTIES += \
+   ro.kernel.ebpf.supported=true
+
 # Charger
 PRODUCT_PRODUCT_PROPERTIES += \
    ro.charger.enable_suspend=true
