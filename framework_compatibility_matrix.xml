@@ -151,10 +151,10 @@
         </interface>
     </hal>
     <hal format="hidl" optional="true">
-        <name>vendor.goodix.hardware.biometrics.fingerprint</name>
+        <name>vendor.oppo.hardware.biometrics.fingerprint</name>
         <version>2.1</version>
         <interface>
-            <name>IGoodixFingerprintDaemon</name>
+            <name>IBiometricsFingerprint</name>
             <instance>default</instance>
         </interface>
     </hal>
