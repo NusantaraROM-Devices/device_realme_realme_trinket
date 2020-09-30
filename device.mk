@@ -87,8 +87,8 @@ PRODUCT_PACKAGES += \
     android.hardware.light@2.0-impl.realme_trinket
 
 # Livedisplay
-PRODUCT_PACKAGES += \
-    lineage.livedisplay@2.0-service-sdm
+# PRODUCT_PACKAGES += \
+#     lineage.livedisplay@2.0-service-sdm
 
 # Media
 PRODUCT_COPY_FILES += \
