@@ -14,6 +14,10 @@
  * limitations under the License.
  */
 
+#include <vector>
+#include <string>
+#include <fstream>
+
 #include <android-base/logging.h>
 #include <android-base/properties.h>
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
@@ -34,39 +38,50 @@ void property_override(char const prop[], char const value[])
     else
         __system_property_add(prop, strlen(prop), value, strlen(value));
 }
-void load_raphaelglobal() {
-    property_override("ro.product.model", "Mi 9T Pro");
-    property_override("ro.build.product", "raphael");
-    property_override("ro.product.device", "raphael");
-    property_override("ro.build.description", "raphael-user 10 QKQ1.190825.002 V11.0.3.0.QFKEUXM release-keys");
+
+void property_override_dual(char const system_prop[], char const vendor_prop[],
+    char const value[])
+{
+    property_override(system_prop, value);
+    property_override(vendor_prop, value);
 }
 
-void load_raphaelin() {
-    property_override("ro.product.model", "Redmi K20 Pro");
-    property_override("ro.build.product", "raphaelin");
-    property_override("ro.product.device", "raphaelin");
-    property_override("ro.build.description", "raphaelin-user 10 QKQ1.190825.002 V11.0.1.0.QFKINXM release-keys");
+void load_RMX1911() {
+    property_override("ro.product.model", "Realme 5");
+    property_override("ro.build.product", "RMX1911");
+    property_override("ro.product.device", "RMX1911");
 }
 
-void load_raphael() {
-    property_override("ro.product.model", "Redmi K20 Pro");
-    property_override("ro.build.product", "raphael");
-    property_override("ro.product.device", "raphael");
-    property_override("ro.build.description", "raphael-user 10 QKQ1.190825.002 V11.0.2.0.QFKCNXM release-keys");
+void load_RMX1925() {
+    property_override("ro.product.model", "Realme 5s");
+    property_override("ro.build.product", "RMX1925");
+    property_override("ro.product.device", "RMX1925");
 }
 
+void load_RMX2030() {
+    property_override("ro.product.model", "Realme 5i");
+    property_override("ro.build.product", "RMX2030");
+    property_override("ro.product.device", "RMX2030");
+}
 
 void vendor_load_properties() {
-    std::string region = android::base::GetProperty("ro.boot.hwc", "");
+    std::ifstream infile("/proc/oppoVersion/prjVersion");
+    std::string prjName;
+    getline(infile, prjName);
 
-    if (region.find("CN") != std::string::npos) {
-        load_raphael();
-    } else if (region.find("INDIA") != std::string::npos) {
-        load_raphaelin();
-    } else if (region.find("GLOBAL") != std::string::npos) {
-        load_raphaelglobal();
+    if (prjName == "19631") {
+        load_RMX1911();
+    } else if (prjName == "19632") {
+        load_RMX1925();
+    } else if (prjName == "19743") {
+        load_RMX2030();
     } else {
-        LOG(ERROR) << __func__ << ": unexcepted region!";
+        LOG(ERROR) << __func__ << ": unexcepted prjVersion!";
     }
-    property_override("ro.build.fingerprint", "google/coral/coral:10/QQ3A.200805.001/6578210:user/release-keys");
+
+
+    property_override("ro.control_privapp_permissions", "log");
+    property_override("ro.build.description", "coral-user 11 RP1A.200720.009 6720564 release-keys");
+    property_override("ro.vendor.build.fingerprint", "google/coral/coral:11/RP1A.200720.009/6720564:user/release-keys");
+    property_override("ro.build.fingerprint", "google/coral/coral:11/RP1A.200720.009/6720564:user/release-keys");
 }
