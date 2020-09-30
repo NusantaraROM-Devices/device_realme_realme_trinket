@@ -32,20 +32,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Display
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.eyecare.brightness.threshold=11 \
-    ro.eyecare.brightness.level=5 \
-    ro.displayfeature.histogram.enable=true \
     ro.hist.brightness.threshold=7 \
-    ro.sf.lcd_density=440 \
+    ro.sf.lcd_density=320 \
     ro.vendor.display.ad=1 \
     ro.vendor.display.ad.hdr_calib_data=/vendor/etc/hdr_config.cfg \
     ro.vendor.display.ad.sdr_calib_data=/vendor/etc/sdr_config.cfg \
-    ro.vendor.display.sensortype=2 \
-    ro.xiaomi.bl.poll=true \
-    persist.displayfeature.dc_backlight.threshold=610 \
-    persist.displayfeature.dc_backlight.enable=false \
-    persist.fod.modified.dc_status=false \
-    sys.displayfeature.hbm.enable=true
+    ro.vendor.display.sensortype=2
 
 # Graphics
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -71,7 +63,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     DEVICE_PROVISIONED=1 \
     rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so \
-    ril.subscription.types=RUIM \
+    ril.subscription.types=NV,RUIM \
     ro.telephony.default_cdma_sub=0 \
     ro.telephony.default_network=22,22 \
     persist.dbg.volte_avail_ovr=1 \

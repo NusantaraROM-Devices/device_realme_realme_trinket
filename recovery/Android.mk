@@ -6,6 +6,6 @@ LOCAL_C_INCLUDES := \
     bootable/recovery/edify/include \
     bootable/recovery/otautil/include
 LOCAL_SRC_FILES := recovery_updater.cpp
-LOCAL_MODULE := librecovery_updater_raphael
+LOCAL_MODULE := librecovery_updater_realme_trinket
 
 include $(BUILD_STATIC_LIBRARY)
