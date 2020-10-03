@@ -20,10 +20,18 @@ import re
 def FullOTA_Assertions(info):
   AddTrustZoneAssertion(info, info.input_zip)
   PatchVendor(info)
+  OTA_InstallEnd(info, False)
 
 def IncrementalOTA_Assertions(info):
   AddTrustZoneAssertion(info, info.target_zip)
   PatchVendor(info)
+  OTA_InstallEnd(info, True)
+
+def AddImage(info, basename, dest):
+  name = basename
+  data = info.input_zip.read("IMAGES/" + basename)
+  common.ZipWriteStr(info.output_zip, name, data)
+  info.script.AppendExtra('package_extract_file("%s", "%s");' % (name, dest))
 
 def AddTrustZoneAssertion(info, input_zip):
   android_info = info.input_zip.read("OTA/android-info.txt")
@@ -38,4 +46,9 @@ def PatchVendor(info):
   info.script.AppendExtra('mount("ext4", "EMMC", "/dev/block/bootdevice/by-name/vendor", "/vendor");')
   info.script.AppendExtra('delete_recursive("/vendor/overlay/");')
   info.script.AppendExtra('unmount("/vendor");')
+  return
+
+def OTA_InstallEnd(info, incremental):
+  info.script.Print("Patching firmware images...")
+  AddImage(info, "dtbo.img", "/dev/block/bootdevice/by-name/dtbo")
   return
