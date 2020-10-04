@@ -90,10 +90,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/gpio-keys.kl:system/usr/keylayout/gpio-keys.kl
 
-# Light
-PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-impl.realme_trinket
-
 # Livedisplay
 # PRODUCT_PACKAGES += \
 #     lineage.livedisplay@2.0-service-sdm
