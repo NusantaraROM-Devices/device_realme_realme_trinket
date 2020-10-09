@@ -15,9 +15,11 @@ cc_binary {
         "liblog",
         "libhidlbase",
         "libhardware",
-        "libutils",
-        "libbase",
         "android.hardware.biometrics.fingerprint@2.1",
         "vendor.oppo.hardware.biometrics.fingerprint@2.1",
+    ],
+    static_libs: [
+        "libbase",
+        "libutils",
     ],
 }

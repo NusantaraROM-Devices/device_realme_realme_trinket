@@ -20,10 +20,12 @@ cc_binary {
     srcs: ["service.cpp", "Light.cpp"],
     shared_libs: [
         "android.hardware.light@2.0",
-        "libbase",
         "libhardware",
         "libhidlbase",
         "liblog",
+    ],
+    static_libs: [
+        "libbase",
         "libutils",
     ],
 }
