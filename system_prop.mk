@@ -48,7 +48,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 # Media
 PRODUCT_PROPERTY_OVERRIDES += \
     media.stagefright.thumbnail.prefer_hw_codecs=true \
-    media.settings.xml=/system/etc/media_profiles_vendor.xml \
+    media.settings.xml=/system/etc/media_profiles_V1_0.xml \
     vendor.mm.enable.qcom_parser=63963135
 
 # Memory optimizations
