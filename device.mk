@@ -85,6 +85,9 @@ PRODUCT_PACKAGES += \
     libqcomfm_jni \
     qcom.fmradio
 
+# FU
+$(call inherit-product-if-exists, external/motorola/faceunlock/config.mk)
+
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
