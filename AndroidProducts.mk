@@ -5,4 +5,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/derp_realme_trinket.mk
+    $(LOCAL_DIR)/nad_realme_trinket.mk
