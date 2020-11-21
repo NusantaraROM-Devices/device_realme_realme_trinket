@@ -79,7 +79,7 @@ void vendor_load_properties() {
 
 
     property_override("ro.control_privapp_permissions", "log");
-    property_override("ro.build.description", "sunfish-user 11 RP1A.201105.002 6869500 release-keys");
-    property_override("ro.vendor.build.fingerprint", "google/sunfish/sunfish:11/RP1A.201105.002/6828489:user/release-keys");
-    property_override("ro.build.fingerprint", "google/sunfish/sunfish:11/RP1A.201105.002/6828489:user/release-keys");
+    property_override("ro.build.description", "coral-user 11 RP1A.201105.002-6869500-release-keys");
+    property_override("ro.vendor.build.fingerprint", "google/coral/coral:11/RP1A.201105.002/6869500:user/release-keys");
+    property_override("ro.build.fingerprint", "google/coral/coral:11/RP1A.201105.002/6869500:user/release-keys");
 }
