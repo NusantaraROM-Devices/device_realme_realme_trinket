@@ -46,16 +46,14 @@ void property_override_dual(char const system_prop[], char const vendor_prop[],
     property_override(vendor_prop, value);
 }
 
-void load_RMX1911() {
-    property_override("ro.product.model", "Realme 5");
+void load_RMX1911(bool isNFC) {
+    if (isNFC) {
+        property_override("ro.product.model", "Realme 5 NFC");
+    } else {
+        property_override("ro.product.model", "Realme 5");
+    }
     property_override("ro.build.product", "RMX1911");
     property_override("ro.product.device", "RMX1911");
-}
-
-void load_RMX1925() {
-    property_override("ro.product.model", "Realme 5s");
-    property_override("ro.build.product", "RMX1925");
-    property_override("ro.product.device", "RMX1925");
 }
 
 void load_RMX2030() {
@@ -70,9 +68,9 @@ void vendor_load_properties() {
     getline(infile, prjName);
 
     if (prjName == "19631") {
-        load_RMX1911();
+        load_RMX1911(false);
     } else if (prjName == "19632") {
-        load_RMX1925();
+        load_RMX1911(true);
     } else if (prjName == "19743") {
         load_RMX2030();
     } else {
