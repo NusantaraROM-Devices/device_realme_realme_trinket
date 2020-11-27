@@ -34,7 +34,7 @@
 #include "display-helper.h"
 #include <linux/input.h>
 
-constexpr char kWakeupEventNode[] = "/dev/input/event2";
+constexpr char kWakeupEventNode[] = "/dev/input/event1";
 constexpr int kWakeupModeOff = 4;
 constexpr int kWakeupModeOn = 5;
 
