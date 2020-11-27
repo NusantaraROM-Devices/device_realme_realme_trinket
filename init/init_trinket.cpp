@@ -46,14 +46,21 @@ void property_override_dual(char const system_prop[], char const vendor_prop[],
     property_override(vendor_prop, value);
 }
 
-void load_RMX1911(bool isNFC) {
-    if (isNFC) {
-        property_override("ro.product.model", "Realme 5 NFC");
-    } else {
-        property_override("ro.product.model", "Realme 5");
-    }
+void load_RMX1911() {
+    property_override("ro.product.model", "Realme 5");
     property_override("ro.build.product", "RMX1911");
     property_override("ro.product.device", "RMX1911");
+}
+
+void load_RMX1927(){
+    property_override("ro.product.model", "Realme 5 NFC");
+    property_override("ro.build.product", "RMX1927");
+    property_override("ro.product.device", "RMX1927");
+    property_set("persist.sys.nfc.disPowerSave", "1");
+    property_set("persist.sys.nfc.default", "on");
+    property_set("persist.sys.nfc.aid_overflow", "true");
+    property_set("ro.product.cuptsm", "OPPO|ESE|01|02");
+    property_set("persist.sys.nfc.antenna_area", "bottom");
 }
 
 void load_RMX2030() {
@@ -68,9 +75,9 @@ void vendor_load_properties() {
     getline(infile, prjName);
 
     if (prjName == "19631") {
-        load_RMX1911(false);
+        load_RMX1911();
     } else if (prjName == "19632") {
-        load_RMX1911(true);
+        load_RMX1927();
     } else if (prjName == "19743") {
         load_RMX2030();
     } else {

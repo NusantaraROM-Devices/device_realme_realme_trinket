@@ -123,6 +123,14 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media_profiles_V1_0.xml:system/etc/media_profiles_V1_0.xml
 
+# NFC
+PRODUCT_PACKAGES += \
+    com.android.nfc_extras \
+    com.gsma.services.nfc \
+    NfcNci \
+    SecureElement \
+    Tag
+
 # Net
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
@@ -153,7 +161,8 @@ PRODUCT_COPY_FILES += \
 
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
-    $(LOCAL_PATH)
+    $(LOCAL_PATH) \
+    vendor/nxp/opensource/pn5xx
 
 # Telephony
 PRODUCT_PACKAGES += \
