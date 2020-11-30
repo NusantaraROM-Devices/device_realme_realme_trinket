@@ -69,9 +69,9 @@ PRODUCT_PACKAGES += \
     libvulkan
 
 # Doze
-PRODUCT_PACKAGES += \
-    devicesettings \
-    RealmeDoze
+# PRODUCT_PACKAGES += \
+#     devicesettings \
+#     RealmeDoze
 
 # Fingerprint
 PRODUCT_PACKAGES += \
