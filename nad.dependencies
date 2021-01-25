@@ -1,0 +1,9 @@
+[
+  {
+    "remote": "github",
+    "repository": "dodyirawan85/vendor_realme_trinket",
+    "target_path": "vendor/realme/realme_trinket",
+    "branch": "ten",
+    "clone-depth": "1"
+  }
+]
